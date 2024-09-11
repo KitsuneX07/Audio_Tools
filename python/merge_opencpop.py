@@ -5,6 +5,7 @@
 import os
 from pydub import AudioSegment
 
+
 def merge(opencpop_folder_path, output_folder_path):
     if not os.path.exists(output_folder_path):
         os.makedirs(output_folder_path)
@@ -31,11 +32,12 @@ def merge(opencpop_folder_path, output_folder_path):
             combined += audio_segment
 
         # 输出合并后的音频
-        output_path = os.path.join(output_folder_path, f'{key}_merged.wav')
+        output_path = os.path.join(output_folder_path, f"{key}_merged.wav")
         combined.export(output_path, format="wav")
-        print(f'Merged {len(files)} files into {output_path}')
+        print(f"Merged {len(files)} files into {output_path}")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     opencpop_folder_path = "D:\\download\\BaiduNetdiskDownload\\opencpop"
     output_folder_path = ".\\opencpop_merged"
     merge(opencpop_folder_path, output_folder_path)
