@@ -13,7 +13,15 @@ def rename(folder_path, index):
             print(f"文件已重命名: {filename} -> {new_filename}")
 
 
+def rename_folder(folder_path):
+    for folder in os.listdir(folder_path):
+        folder_full_path = os.path.join(folder_path, folder)
+        if os.path.isdir(folder_full_path):
+            new_folder_name = folder.replace('song', 'audio')
+            new_folder_full_path = os.path.join(folder_path, new_folder_name)
+            os.rename(folder_full_path, new_folder_full_path)
+            print(f"文件夹已重命名: {folder} -> {new_folder_name}")
+
 if __name__ == "__main__":
-    folder_path = f"D:\projects\python\diffsinger\sv_datasets\svp"
-    index = 1
-    rename(folder_path, index)
+    folder_path = r"D:\temp\dataset_reverb\output"  # 修改为你的文件夹路径
+    rename_folder(folder_path)
